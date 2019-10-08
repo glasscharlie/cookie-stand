@@ -12,7 +12,6 @@ var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm
 var seattleStore = {
   locationName: 'Seattle',
   shopHours,
-
   minCustomers: 23,
   maxCustomers: 65,
   averageCookies:6.3,
@@ -23,7 +22,6 @@ var seattleStore = {
     this.randomSum += rand;
     return rand;
   },
-
   render: function() {
     for (var z = 0; z < this.shopHours.length; z++) {
       var childEl = document.createElement('li');
@@ -34,7 +32,6 @@ var seattleStore = {
     parentEl.appendChild(childEl);
   }
 };
-
 seattleStore.randomNumberGenerator();
 seattleStore.render();
 
@@ -138,7 +135,6 @@ var limaShop = {
   cookieAverage: 4.6,
   randomSums: 0,
   randomNumberGenerator: function (min, max) {
-
     var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
     this.randomSums += rand;
     return rand;
