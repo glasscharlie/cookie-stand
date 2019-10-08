@@ -19,7 +19,6 @@ var seattleStore = {
   randomSum: 0,
 
   randomNumberGenerator: function (min, max) {
-    // return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.averageCookies);
     var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.averageCookies);
     this.randomSum += rand;
     return rand;
@@ -80,7 +79,6 @@ var dubaiShop = {
   cookieAverage: 3.7,
   randomSum: 0,
   randomNumberGenerator: function (min, max) {
-    // return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
     var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
     this.randomSum += rand;
     return rand;
@@ -110,7 +108,6 @@ var parisShop = {
   cookieAverage: 2.3,
   randomSum: 0,
   randomNumberGenerator: function (min, max) {
-    // return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
     var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
     this.randomSum += rand;
     return rand;
