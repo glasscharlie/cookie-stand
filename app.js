@@ -25,28 +25,20 @@ Store.prototype.randomCookies = function() {
 };
 
 
-// function render() {
-//   for (var i = 0; i <shopHours.length; i++) {
-//     var liEL = document.createElement('li');
-//     liEL.textContent = `${shopHours[i]} Cookies: ${this.cookiesPerHour[i]}`;
-//     parentEl.appendChild(liEL);
-//   }
-//   var liEl = document.createElement('li)');
-//   liEl.textContent = `Daily Total: ${this.totalCookies}`;
-//   parentEl.appendChild(liEl);
-// }
-// render();
-
 var seattleStore = new Store('Seattle', 23, 65, 6.3);
 var tokyoStore = new Store('Tokyo', 3, 24, 1.2);
 var dubaiStore = new Store('Dubai', 11, 38, 3.7);
 var parisStore = new Store('Paris', 20, 38, 2.3);
 var limaStore = new Store('Lima', 2, 16, 4.6);
 
-seattleStore.randomCookies();
-console.log(seattleStore);
-// allStores.customersEachHour();
-// allStores.cookiesEachHour();
-// allStores.render();
-// console.log(allStores);
+console.log(allStores);
 
+var renderHours = function () {
+  var tableHead = document.getElementById('storeHead');
+  var tableRow = document.createElement('tr');
+
+  var cell = document.createElement('th');
+  cell.textContent = '';
+  tableRow.appendChild(cell);
+
+}
