@@ -1,153 +1,60 @@
 'use strict';
 
-var parentEl = document.getElementById('parentElement');
-
-var child = document.createElement('h3');
-child.textContent = 'Seattle: ';
-parentEl.appendChild(child);
-
 var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
+var allStores = [];
+function Store (locationName, minCustomers, maxCustomers, averageCookies) {
+  this.locationName = locationName;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.averageCookies = averageCookies;
+  this.totalCookies = 0;
+  this.cookiesPerHour =[];
 
-var seattleStore = {
-  locationName: 'Seattle',
-  shopHours,
-  minCustomers: 23,
-  maxCustomers: 65,
-  averageCookies:6.3,
-  randomSum: 0,
+  allStores.push(this);
+}
 
-  randomNumberGenerator: function (min, max) {
-    var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.averageCookies);
-    this.randomSum += rand;
-    return rand;
-  },
-  render: function() {
-    for (var z = 0; z < this.shopHours.length; z++) {
-      var childEl = document.createElement('li');
-      childEl.textContent = `${this.shopHours[z]}: ${this.randomNumberGenerator()} cookies `;
-      parentEl.appendChild(childEl);
-    }
-    childEl.textContent = ` Total: ${this.randomSum} cookies`;
-    parentEl.appendChild(childEl);
+Store.prototype.randomCookies = function() {
+  for (var i = 0; i < shopHours.length; i++) {
+    this.cookiesPerHour.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers) * this.averageCookies;
+    this.totalCookies = this.totalCookies + this.cookiesPerHour[i];
   }
 };
-seattleStore.randomNumberGenerator();
-seattleStore.render();
 
 
-child = document.createElement('h3');
-child.textContent = 'Tokyo: ';
-parentEl.appendChild(child);
-var tokyoShop = {
-  locationName: 'Tokyo',
-  shopHours,
-  minCustomers: 3,
-  maxCustomers: 24,
-  cookieAverage: 1.2,
-  randomSum: 0,
-  randomNumberGenerator: function (min, max) {
-    var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
-    this.randomSum += rand;
-    return rand;
-  },
-  render: function () {
-    for (var z = 0; z < this.shopHours.length; z++) {
-      var childEl = document.createElement('li');
-      childEl.textContent = `${this.shopHours[z]}: ${this.randomNumberGenerator()} cookies `;
-      parentEl.appendChild(childEl);
-    }
-    childEl.textContent = ` Total: ${this.randomSum} cookies`;
-    parentEl.appendChild(childEl);
+var seattleStore = new Store('Seattle', 23, 65, 6.3);
+var tokyoStore = new Store('Tokyo', 3, 24, 1.2);
+var dubaiStore = new Store('Dubai', 11, 38, 3.7);
+var parisStore = new Store('Paris', 20, 38, 2.3);
+var limaStore = new Store('Lima', 2, 16, 4.6);
+
+console.log(allStores);
+
+
+function renderHeader() {
+  var tableRow = document.createElement('tr');
+  var tableHeader = document.createElement('th');
+  tableRow.appendChild(tableHeader);
+  for (var i = 0; i < shopHours.length; i++) {
+    var hourHeader = document.createElement('th');
+    hourHeader.textContent = shopHours[i];
+    tableRow.appendChild(hourHeader);
   }
-};
-tokyoShop.randomNumberGenerator();
-tokyoShop.render();
+  var cityTotal = document.createElement('th');
+  cityTotal.textContent = 'Total';
+  tableRow.appendChild(cityTotal);
+  document.getElementById('tableHead').appendChild(tableRow);
+}
+renderHeader();
 
-
-child = document.createElement('h3');
-child.textContent = 'Dubai: ';
-parentEl.appendChild(child);
-var dubaiShop = {
-  locationName: 'Dubai',
-  shopHours,
-  minCustomers: 11,
-  maxCustomers: 38,
-  cookieAverage: 3.7,
-  randomSum: 0,
-  randomNumberGenerator: function (min, max) {
-    var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
-    this.randomSum += rand;
-    return rand;
-  },
-  render: function () {
-    for (var z = 0; z < this.shopHours.length; z++) {
-      var childEl = document.createElement('li');
-      childEl.textContent = `${this.shopHours[z]}: ${this.randomNumberGenerator()} cookies `;
-      parentEl.appendChild(childEl);
-    }
-    childEl.textContent = ` Total: ${this.sumRandoms} cookies`;
-    parentEl.appendChild(childEl);
+function renderBody() {
+  var tableRow = document.createElement('tr');
+  var tableData = document.createElement('td');
+  tableRow.appendChild(tableData);
+  for (var i = 0; i < shopHours; i++) {
+    var cookieData = document.createElement('td');
+    cookieData.textContent = this.cookiesPerHour[i];
+    tableRow.appendChild(cookieData);
   }
-};
-dubaiShop.randomNumberGenerator();
-dubaiShop.render();
-
-
-child = document.createElement('h3');
-child.textContent = 'Paris: ';
-parentEl.appendChild(child);
-var parisShop = {
-  locationName: 'Paris',
-  shopHours,
-  minCustomers: 20,
-  maxCustomers: 38,
-  cookieAverage: 2.3,
-  randomSum: 0,
-  randomNumberGenerator: function (min, max) {
-    var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
-    this.randomSum += rand;
-    return rand;
-  },
-  render: function () {
-    for (var i = 0; i < this.shopHours.length; i++) {
-      var childEl = document.createElement('li');
-      childEl.textContent = `${this.shopHours[i]}: ${this.randomNumberGenerator()} cookies `;
-      parentEl.appendChild(childEl);
-    }
-    childEl.textContent = ` Total: ${this.randomSum} cookies`;
-    parentEl.appendChild(childEl);
-  }
-};
-parisShop.randomNumberGenerator();
-parisShop.render();
-
-
-
-child = document.createElement('h3');
-child.textContent = 'Lima: ';
-parentEl.appendChild(child);
-var limaShop = {
-  locationName: 'Lima',
-  shopHours,
-  minCustomers: 2,
-  maxCustomers: 16,
-  cookieAverage: 4.6,
-  randomSums: 0,
-  randomNumberGenerator: function (min, max) {
-    var rand = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers * this.cookieAverage);
-    this.randomSums += rand;
-    return rand;
-  },
-  render: function () {
-    for (var i = 0; i < this.shopHours.length; i++) {
-      var childEl = document.createElement('li');
-      childEl.textContent = `${this.shopHours[i]}: ${this.randomNumberGenerator()} cookies `;
-      parentEl.appendChild(childEl);
-    }
-    childEl.textContent = ` Total: ${this.randomSums} cookies`;
-    parentEl.appendChild(childEl);
-  }
-};
-limaShop.randomNumberGenerator();
-limaShop.render();
+}
+renderBody();
