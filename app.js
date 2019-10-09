@@ -35,20 +35,15 @@ function CookieShop(min, max, avgC, sName) {
     }
     return newTR;
   };
-  // this.updateStore = function(newMin, newMax, newAvg) {
-  //   this.minCust = newMin;
-  //   this.maxCust = newMax;
-  //   this.avgC = newAvg;
-  //   this.cookieCount = [];
-  // };
+
   storeList.push(this);
 }
 
-var pikeShop = new CookieShop(23, 65, 6.3, 'First and Pike');
-var airportShop = new CookieShop(3, 24, 1.2, 'Airport');
-var centerShop = new CookieShop(11, 38, 3.7, 'Seattle Center');
-var hillShop = new CookieShop(20, 38, 2.3, 'Capitol Hill');
-var alkiShop = new CookieShop(2, 16, 4.6, 'Alki');
+var Seattle = new CookieShop(23, 65, 6.3, 'Seattle');
+var Tokyo = new CookieShop(3, 24, 1.2, 'Tokyo');
+var Dubai = new CookieShop(11, 38, 3.7, 'Dubai');
+var Paris = new CookieShop(20, 38, 2.3, 'Paris');
+var Lima = new CookieShop(2, 16, 4.6, 'Lima');
 
 function tableHead() {
   var newTHead = document.createElement('thead');
