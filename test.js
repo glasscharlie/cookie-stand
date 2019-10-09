@@ -15,3 +15,4 @@ var renderHeaderRow = function() {
   tableBody.appendChild(trEl);
 };
 renderHeaderRow();
+

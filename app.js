@@ -1,8 +1,5 @@
 'use strict';
 
-var parentEl = document.getElementById('parentElement');
-
-
 var shopHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 var allStores = [];
@@ -33,12 +30,31 @@ var limaStore = new Store('Lima', 2, 16, 4.6);
 
 console.log(allStores);
 
-var renderHours = function () {
-  var tableHead = document.getElementById('storeHead');
+
+function renderHeader() {
   var tableRow = document.createElement('tr');
-
-  var cell = document.createElement('th');
-  cell.textContent = '';
-  tableRow.appendChild(cell);
-
+  var tableHeader = document.createElement('th');
+  tableRow.appendChild(tableHeader);
+  for (var i = 0; i < shopHours.length; i++) {
+    var hourHeader = document.createElement('th');
+    hourHeader.textContent = shopHours[i];
+    tableRow.appendChild(hourHeader);
+  }
+  var cityTotal = document.createElement('th');
+  cityTotal.textContent = 'Total';
+  tableRow.appendChild(cityTotal);
+  document.getElementById('tableHead').appendChild(tableRow);
 }
+renderHeader();
+
+function renderBody() {
+  var tableRow = document.createElement('tr');
+  var tableData = document.createElement('td');
+  tableRow.appendChild(tableData);
+  for (var i = 0; i < shopHours; i++) {
+    var cookieData = document.createElement('td');
+    cookieData.textContent = this.cookiesPerHour[i];
+    tableRow.appendChild(cookieData);
+  }
+}
+renderBody();
