@@ -1,6 +1,6 @@
 'use strict';
 
-var storeHours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 pm','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm','8:00 pm','Daily Location Total'];
+var storeHours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 pm','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm','8:00 pm'];
 var storeList = [];
 
 function CookieShop(min, max, avgC, sName) {
@@ -26,39 +26,34 @@ function CookieShop(min, max, avgC, sName) {
     this.dailySales();
     var newTR = document.createElement('tr');
     var newTD = document.createElement('td');
-    newTD.innerText = this.storeName;
+    newTD.textContent = this.storeName;
     newTR.appendChild(newTD);
     for (var a = 0; a < storeHours.length; a++) {
       newTD = document.createElement('td');
-      newTD.innerText = this.cookieCount[a];
+      newTD.textContent = this.cookieCount[a];
       newTR.appendChild(newTD);
     }
     return newTR;
   };
-  // this.updateStore = function(newMin, newMax, newAvg) {
-  //   this.minCust = newMin;
-  //   this.maxCust = newMax;
-  //   this.avgC = newAvg;
-  //   this.cookieCount = [];
-  // };
+
   storeList.push(this);
 }
 
-var pikeShop = new CookieShop(23, 65, 6.3, 'First and Pike');
-var airportShop = new CookieShop(3, 24, 1.2, 'Airport');
-var centerShop = new CookieShop(11, 38, 3.7, 'Seattle Center');
-var hillShop = new CookieShop(20, 38, 2.3, 'Capitol Hill');
-var alkiShop = new CookieShop(2, 16, 4.6, 'Alki');
+var Seattle = new CookieShop(23, 65, 6.3, 'Seattle');
+var Tokyo = new CookieShop(3, 24, 1.2, 'Tokyo');
+var Dubai = new CookieShop(11, 38, 3.7, 'Dubai');
+var Paris = new CookieShop(20, 38, 2.3, 'Paris');
+var Lima = new CookieShop(2, 16, 4.6, 'Lima');
 
 function tableHead() {
   var newTHead = document.createElement('thead');
   var newTR = document.createElement('tr');
   var newTH = document.createElement('th');
-  newTH.innerText = 'Store Name';
+  newTH.textContent = 'Store Name';
   newTR.appendChild(newTH);
   for (var c = 0; c < storeHours.length; c++) {
     newTH = document.createElement('th');
-    newTH.innerText = storeHours[c];
+    newTH.textContent = storeHours[c];
     newTR.appendChild(newTH);
   }
   newTHead.appendChild(newTR);
@@ -68,7 +63,7 @@ function tableHead() {
 function tableFoot() {
   var newTR = document.createElement('tr');
   var newTD = document.createElement('td');
-  newTD.innerText = 'Totals';
+  newTD.textContent = 'Totals';
   newTR.appendChild(newTD);
   for (var c = 0; c < storeHours.length; c++) {
     var hourlyTotal = 0;
@@ -76,7 +71,7 @@ function tableFoot() {
       hourlyTotal += storeList[i].cookieCount[c];
     }
     newTD = document.createElement('td');
-    newTD.innerText = hourlyTotal;
+    newTD.textContent = hourlyTotal;
     newTR.appendChild(newTD);
   }
   return newTR;
