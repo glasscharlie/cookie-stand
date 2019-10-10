@@ -108,8 +108,8 @@ function addStore(event) {
   //plus signs make the following into an integer, similar to parseInt()
   var newStore = new CookieShop(+minCustomers, +maxCustomers, +avgCustomers, location);
 
-  storeList.push(newStore);
-  console.log(storeList);
+  // storeList.push(newStore);
+  // console.log(storeList);
   // console.log('ANYONG', event);
   // console.log(location);
   // console.log(minCustomers);
