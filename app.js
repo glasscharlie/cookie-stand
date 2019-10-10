@@ -45,6 +45,9 @@ var Dubai = new CookieShop(11, 38, 3.7, 'Dubai');
 var Paris = new CookieShop(20, 38, 2.3, 'Paris');
 var Lima = new CookieShop(2, 16, 4.6, 'Lima');
 
+
+
+
 function tableHead() {
   var newTHead = document.createElement('thead');
   var newTR = document.createElement('tr');
@@ -91,3 +94,29 @@ function genTable() {
 }
 
 genTable();
+
+var userForm = document.getElementById('newStore');
+userForm.addEventListener('submit', addStore);
+
+function addStore(event) {
+  event.preventDefault();
+
+  var location = event.target.locationElement.value;
+  var minCustomers = event.target.minCustomersElement.value;
+  var maxCustomers = event.target.maxCustomersElement.value;
+  var avgCustomers = event.target.avgCookiesElement.value;
+  //plus signs make the following into an integer, similar to parseInt()
+  var newStore = new CookieShop(+minCustomers, +maxCustomers, +avgCustomers, location);
+
+  storeList.push(newStore);
+  console.log(storeList);
+  // console.log('ANYONG', event);
+  // console.log(location);
+  // console.log(minCustomers);
+  // console.log(maxCustomers);
+  // console.log(avgCustomers);
+  console.log(newStore);
+}
+
+
+
