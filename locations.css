@@ -1,0 +1,135 @@
+body {
+    background: lightblue;
+    height: 1400px;
+    width: 1300px;
+    padding: 1em;
+    position: relative;
+    }
+
+
+.topnav {
+    background-color: aqua;
+    width:960px;
+    height: 30px;
+    text-align: center;
+  font-size: 20px;
+  position:absolute;
+  top:0px;
+  left: 25%;
+  }
+    
+  .topnav a{
+      margin: 10px;
+  }
+  .topnav a:hover {
+    background-color: #555;
+    color: red;
+  }
+
+  h1 {
+      position: absolute;
+      top: 5%;
+    left: 50%;
+    font-size: 50px;
+    color: red;
+  }
+  .img1 {
+      position: absolute;
+      top: 15%;
+      left: 43%;
+  }
+  .seattle {
+      position: absolute;
+      top:40%;
+      left: 30%;
+      font-size: 30px;
+      word-spacing: 16px;
+  }
+  .seattleAdr {
+    position: absolute;
+    top:40.5%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .seattleNum {
+    position: absolute;
+    top:44%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .tokyo {
+    position: absolute;
+    top:50%;
+    left: 30%;
+    font-size: 30px;
+    word-spacing: 16px;
+}
+.tokyoAdr {
+    position: absolute;
+    top:50.5%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .tokyoNum {
+    position: absolute;
+    top:54%;
+    left: 40%;
+    font-size:20px;
+  }
+.dubai {
+    position: absolute;
+    top:60%;
+    left: 30%;
+    font-size: 30px;
+    word-spacing: 16px;
+}
+.dubaiAdr {
+    position: absolute;
+    top:60.5%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .dubaiNum {
+    position: absolute;
+    top:64%;
+    left: 40%;
+    font-size:20px;
+  }
+.paris {
+    position: absolute;
+    top:70%;
+    left: 30%;
+    font-size: 30px;
+    word-spacing: 16px;
+}
+.parisAdr {
+    position: absolute;
+    top:70.5%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .parisNum {
+    position: absolute;
+    top:74%;
+    left: 40%;
+    font-size:20px;
+  }
+.lima {
+    position: absolute;
+    top:80%;
+    left: 30%;
+    font-size: 30px;
+    word-spacing: 16px;
+}
+.limaAdr {
+    position: absolute;
+    top:80.5%;
+    left: 40%;
+    font-size: 20px;
+  }
+  .limaNum {
+    position: absolute;
+    top:84%;
+    left: 40%;
+    font-size:20px;
+  }

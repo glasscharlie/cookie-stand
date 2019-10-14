@@ -1,0 +1,60 @@
+body {
+    background: lightblue;
+    height: 1400px;
+    width: 1300px;
+    padding: 1em;
+    position: relative;
+    }
+
+
+.topnav {
+    background-color: aqua;
+    width:960px;
+    height: 30px;
+    text-align: center;
+  font-size: 20px;
+  position:absolute;
+  top:0px;
+  left: 25%;
+  }
+    
+  .topnav a{
+      margin: 10px;
+  }
+  .topnav a:hover {
+    background-color: #555;
+    color: red;
+  }
+
+  h1 {
+      position: absolute;
+      top: 5%;
+    left: 50%;
+    font-size: 50px;
+    color: red;
+  }
+  .img1 {
+      position: absolute;
+      top: 15%;
+      left: 34%;
+  }
+  .customerSupport {
+      position: absolute;
+      top:40%;
+      left: 34%;
+      font-size: 30px;
+  }
+  .eMail {
+    position: absolute;
+    top:46%;
+    left: 34%;
+    font-size: 30px;
+  }
+  .twitter {
+    position: absolute;
+    top:52%;
+    left: 34%;
+    font-size: 30px;
+  }
+
+  
