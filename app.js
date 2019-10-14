@@ -2,6 +2,7 @@
 
 var storeHours = ['7:00 am','8:00 am','8:00 am','10:00 am','11:00 am','12:00 am','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm','8:00 pm','Total'];
 var storeList = [];
+var hourlyTotal = 0;
 
 function CookieShop(min, max, avgC, sName) {
   this.minCust = min;
@@ -69,7 +70,6 @@ function tableFoot() {
   newTD.textContent = 'Totals';
   newTR.appendChild(newTD);
   for (var c = 0; c < storeHours.length; c++) {
-    var hourlyTotal = 0;
     for (var i = 0; i < storeList.length; i++) {
       hourlyTotal += storeList[i].cookieCount[c];
     }
@@ -79,10 +79,9 @@ function tableFoot() {
   }
   return newTR;
 }
-
+var newTable = document.createElement('table');
 function genTable() {
   var pageBody = document.getElementsByTagName('body')[0];
-  var newTable = document.createElement('table');
   newTable.appendChild(tableHead());
   var newTBody = document.createElement('tbody');
   for (var b = 0; b < storeList.length; b++) {
@@ -91,6 +90,7 @@ function genTable() {
   newTBody.appendChild(tableFoot());
   newTable.appendChild(newTBody);
   pageBody.appendChild(newTable);
+
 }
 
 genTable();
@@ -108,6 +108,10 @@ function addStore(event) {
   //plus signs make the following into an integer, similar to parseInt()
   var newStore = new CookieShop(+minCustomers, +maxCustomers, +avgCustomers, location);
 
+  newTable.innerHTML = '';
+  genTable();
+
+
 
 
   // storeList.push(newStore);
@@ -120,5 +124,6 @@ function addStore(event) {
   console.log(newStore);
 
 }
+
 
 
